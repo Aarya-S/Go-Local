@@ -1,0 +1,17 @@
+.dashboard-card {
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 0;
+  margin-top: 3%;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background: #fff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 40px;
+}
+
+.dashboard-form {
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 0;
+}

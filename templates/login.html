@@ -14,6 +14,9 @@
 <link rel="stylesheet" href="../static/login.css">
 </head>
 <body>
+<div class="back-redirect">
+  <a href="/"><button class="btn btn-dark"><i class="fa fa-arrow-left back-arrow"></i> Back to Home</button></a>
+</div>
 <div className="signup-form">
   <form action="/dashboard" method="get" class="box-outer">
     <h2>Login</h2>
@@ -36,7 +39,7 @@
       <input type="password" class="form-control input-lg" name="password" id="InputPassword" placeholder="Enter password" required="required">
     </div>
     <div class="form-group">
-      <button type="submit" class="btn btn-success btn-block signup-btn">Sign Up</button>
+      <button type="submit" class="btn btn-primary btn-block btn-lg signup-btn">Login</button>
   </form>
 </div>
 </body>
