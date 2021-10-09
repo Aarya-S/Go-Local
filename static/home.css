@@ -1,0 +1,20 @@
+.card-custom {
+  margin: 10px;
+  width: 12rem;
+  border: 1px solid gray;
+  border-radius: 15px;
+}
+
+.card-section {
+  width: 100%;
+  margin: 15px;
+}
+
+.price-element {
+  margin-bottom: 10px;
+}
+
+.card-img-top {
+  border-radius: 15px 15px 0 0;
+  border-bottom: 1px solid gray;
+}
