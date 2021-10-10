@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, redirect, session
+from flask import Flask, render_template, request, url_for, redirect, session,flash
 import pymongo
 import bcrypt
 from pymongo import MongoClient, ssl_support
@@ -31,6 +31,7 @@ def home():
 
 @app.route('/dashboard', methods=['post', 'get'])
 def dashboard():
+    
     return render_template('dashboard.html')
 
 @app.route('/test')
@@ -95,6 +96,7 @@ def login():
             #encode the password and check if it matches
             if bcrypt.checkpw(password.encode('utf-8'), passwordcheck):
                 session["email"] = email_val
+                flash("Successfully Logged In!")
                 return redirect(url_for('dashboard'))
             else:
                 if "email" in session:
@@ -131,7 +133,7 @@ def create():
         test = mongo.db.test
         values=request.form.to_dict(flat=False)
         print(values)
-        x=test.insert_one({'Product':values['Product'], 'Category' :  values['Category'],'Price':  values['Price'],'UnitsInStock':values['UnitsInStock'],'image' : values['image']})
+        x=test.insert_one({'Product':values['Product'], 'Category' :  values['Category'],'Price':  values['Price'],'UnitsInStock':values['UnitsInStock'],'image' : values['image'],"Description":values['Description'],"SellerName" :values["SellerName"]})
         print(x)
         return redirect(url_for('dashboard'))
 
