@@ -11,7 +11,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" href="../static/login.css">
+<link rel='stylesheet' type="text/css" href="{{url_for('static', filename='login.css') }}">
 </head>
 <body>
 <div class="back-redirect">
@@ -41,6 +41,10 @@
     <div class="form-group">
       <button type="submit" class="btn btn-primary btn-block btn-lg signup-btn">Login</button>
   </form>
+  <br>
+            <div>
+                Don't have an account? <a href="/index">Sign up here</a>.
+            </div>
 </div>
 </body>
 </html>

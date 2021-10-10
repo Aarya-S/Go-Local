@@ -13,12 +13,21 @@ mongo = MongoClient("mongodb+srv://manasvi:man14@queenman.rrrho.mongodb.net/test
 db = mongo.get_database('reg_records')
 #get the particular collection that contains the data
 records = db.register
+test = mongo.get_database('prod_details')
+details = test.prod_details
 
 #assign URLs to have a particular route
 @app.route('/') 
-@app.route('/home')
+@app.route('/home', methods=['POST'])
 def home():
-    return render_template('home.html')
+    #temp={'Product':'Product', 'Category' : 'Category','Price':'Price','UnitsInStock':'UnitsInStock','image' : 'image'}
+    # data = temp.find()
+    #data=mongo.db.test.find_one({'Product':'Product', 'Category' : 'Category','Price':'Price','UnitsInStock':'UnitsInStock','image' : 'image'})
+    #return render_template('home.html',data=data)
+        test= db.test.find({'Product':'Product', 'Category' : 'Category','Price':'Price','UnitsInStock':'UnitsInStock','image' : 'image'})
+        return render_template('home.html', test=test)
+    # except Exception as e:
+    #     return dumps({'error' : str(e)})
 
 @app.route('/dashboard', methods=['post', 'get'])
 def dashboard():
@@ -113,7 +122,19 @@ def logout():
     else:
         return render_template('index.html')
 
+@app.route('/create', methods=['POST'])
+
+def create():
+    
+    if request.method == 'POST':
+        
+        test = mongo.db.test
+        values=request.form.to_dict(flat=False)
+        print(values)
+        x=test.insert_one({'Product':values['Product'], 'Category' :  values['Category'],'Price':  values['Price'],'UnitsInStock':values['UnitsInStock'],'image' : values['image']})
+        print(x)
+        return redirect(url_for('dashboard'))
 
 if __name__ == "__main__":
  
-  app.run(debug=True)
+  app.run(host='0.0.0.0',debug=True)

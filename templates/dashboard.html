@@ -42,28 +42,28 @@
             </div>
             <div class="row tm-edit-product-row">
               <div class="col-xl-6 col-lg-6 col-md-12">
-                <form action="" class="tm-edit-product-form">
+                <form action='/create' class="tm-edit-product-form" method="POST">
                   <div class="form-group mb-3">
-                    <label for="name">Product Name
+                    <label id="Product" type="text" name="Product">Product Name
                     </label>
-                    <input id="name" name="name" type="text" class="form-control validate" required="required">
+                    <input id="Product" name="Product" type="text" class="form-control validate" required="required">
                   </div>
                   <div class="form-group mb-3">
                     <label for="description">Description</label>
                     <textarea class="form-control validate" rows="3" required="Yes"></textarea>
                   </div>
                   <div class="form-group mb-3">
-                    <label for="category">Category</label>
-                    <select class="custom-select tm-select-accounts" id="category">
-                      <option selected="">Select category</option>
+                    <label name="Category" >Category</label>
+                    <select class="custom-select tm-select-accounts" id="Category" name="Category">
+                      <option selected="" name="Category">Select category</option>
                       <option value="1">Food</option>
                       <option value="2">Clothing</option>
                       <option value="3">Accessories</option>
                     </select>
                   </div>
                   <div class="form-group mb-3">
-                    <label for="price">Price</label>
-                    <textarea class="form-control validate" rows="3" required=""></textarea>
+                    <label for="Price">Price</label>
+                    <textarea class="form-control validate" id="Price"  name="Price" rows="3" required=""></textarea>
                   </div>
                   <div class="row">
                       <div class="form-group mb-3 col-xs-12 col-sm-6">
@@ -72,13 +72,13 @@
                           <input id="expire_date" name="expire_date" type="text" class="form-control validate hasDatepicker" data-large-mode="true">
                         </div>
                         <div class="form-group mb-3 col-xs-12 col-sm-6">
-                          <label for="stock">Units In Stock
+                          <label for="UnitsInStock">UnitsInStock
                           </label>
-                          <input id="stock" name="stock" type="text" class="form-control validate" required="">
+                          <input  type="text" name='UnitsInStock' id='UnitsInStock' class="form-control validate" required="">
                         </div>
                   </div>
                   
-              </form></div>
+              </div>
               <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
                 <div class="tm-product-img-dummy mx-auto">
                   <i class="fas fa-cloud-upload-alt tm-upload-icon" onclick="document.getElementById('fileInput').click();"></i>
@@ -86,9 +86,12 @@
                 <div class="custom-file mt-3 mb-3">
                   <input id="fileInput" type="file" style="display:none;">
                   <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
-                  <p><label for="file" style="cursor: pointer;">Upload Image</label></p>
+                  <p><label for="file" style="cursor: pointer;">UploadImage</label></p>
                   <p><img id="output" width="200" /></p>
-
+                  <div class="text-center" >
+              <input type="submit" value="Submit">
+              </div>
+                  </form>
                   <script>
                   var loadFile = function(event) {
                     var image = document.getElementById('output');
