@@ -6,13 +6,6 @@
     <title>Add Product - Dashboard HTML Template</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
     <!-- https://fonts.google.com/specimen/Roboto -->
-    <link rel="stylesheet" href="css/fontawesome.min.css">
-    <!-- https://fontawesome.com/ -->
-    <link rel="stylesheet" href="jquery-ui-datepicker/jquery-ui.min.css" type="text/css">
-    <!-- http://api.jqueryui.com/datepicker/ -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- https://getbootstrap.com/ -->
-    <link rel="stylesheet" href="css/templatemo-style.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
@@ -24,6 +17,8 @@
     
     <link rel="icon" type="image/png" sizes="16x16" href="../static/assets/favicon-32x32.png">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
+
+    <link rel="stylesheet" type="text/css" href="../static/dashboard.css">
     <!--
 	Product Admin CSS Template
 	https://templatemo.com/tm-524-product-admin
@@ -37,6 +32,9 @@
       {% endfor %}
    {% endif %}
 {% endwith %}
+    <div class="back-redirect">
+      <a href="/"><button class="btn btn-black"><i class="fa fa-sign-out sign-out"></i> Logout</button></a>
+    </div>
     <div class="dashboard-form">
     <div class="container tm-mt-big tm-mb-big dashboard-card">
       <div class="row">
@@ -48,7 +46,7 @@
               </div>
             </div>
             <div class="row tm-edit-product-row">
-              <div class="col-xl-6 col-lg-6 col-md-12">
+              <div class="col-xl-10 col-lg-10 col-md-12">
                 <form action='/create' class="tm-edit-product-form" method="POST">
                   <div class="form-group mb-3">
                     <label id="Product" type="text" name="Product">Product Name
@@ -84,24 +82,30 @@
                           <input id="expire_date" name="expire_date" type="text" class="form-control validate hasDatepicker" data-large-mode="true">
                         </div>
                         <div class="form-group mb-3 col-xs-12 col-sm-6">
-                          <label for="UnitsInStock">UnitsInStock
+                          <label for="UnitsInStock">Units In Stock
                           </label>
                           <input  type="text" name='UnitsInStock' id='UnitsInStock' class="form-control validate" required="">
                         </div>
                   </div>
                   
               </div>
-              <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+              <!-- <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
                 <div class="tm-product-img-dummy mx-auto">
-                  <i class="fas fa-cloud-upload-alt tm-upload-icon" onclick="document.getElementById('fileInput').click();"></i>
-                </div>
-                <div class="custom-file mt-3 mb-3">
-                  <input id="fileInput" type="file" style="display:none;">
-                  <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
-                  <p><label for="file" style="cursor: pointer;">UploadImage</label></p>
-                  <p><img id="output" width="200" /></p>
+                  
+                </div> -->
+
+
+                <div class="custom-file col-xl-10 col-lg-10 col-md-12">
+                  
+                  <!-- <input id="fileInput" type="file" style="display:none;"> -->
+                  <label for="file" style="cursor: pointer;"><i class="fas fa-cloud-upload-alt tm-upload-icon" onclick="loadFile(event)" style="margin-right: 10px;""></i></label>
+                  <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="margin-bottom: 25px;">
+                
+                  <img id="output" width="200" />
                   <div class="text-center" >
-              <input type="submit" value="Submit">
+                </div>
+
+              <input type="submit" value="Add Product">
               </div>
                   </form>
                   <script>
@@ -111,8 +115,7 @@
                   };
                   </script>
                 </div>
-              </div>
-              <div class="text-center"> <a href="/test"><button>Add Product</button>  </a></div>
+              
             
             </div>
           </div>
